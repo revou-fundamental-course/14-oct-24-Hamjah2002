@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Form Belajar</h1>
-    </header>
     <div class="container">
-        <form>
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama"><br><br>
-            <label for="tanggal_lahir">Tanggal Lahir:</label>
-            <input type="date" id="tanggal_lahir" name="tanggal_lahir"><br><br>
-            <label for="jenis_kelamin">Jenis Kelamin:</label>
-            <input type="radio" id="laki_laki" name="jenis_kelamin" value="Laki-Laki">
-            <label for="laki_laki">Laki-Laki</label>
-            <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
-            <label for="perempuan">Perempuan</label><br><br>
-            <label for="alamat">Alamat:</label>
-            <textarea id="alamat" name="alamat"></textarea><br><br>
-            <button type="submit">Submit</button>
+        <header>
+            <img src="uncip.jpg" alt="Logo" class="logo">
+            <h1>Form Belajar</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#profile">My Profile</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#contact">Message Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Tanggal Lahir</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Pria</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Wanita</label>
+                </div>
+            </div>
+            <button type="submit">Daftar</button>
         </form>
+        <div id="successMessage" class="hidden">Pendaftaran berhasil! Terima kasih.</div>
     </div>
     <script src="script.js"></script>
 </body>
