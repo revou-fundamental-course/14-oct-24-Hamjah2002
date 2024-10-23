@@ -1,38 +1,17 @@
-const form = document.querySelector('form');
-const table = document.querySelector('table');
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah pengiriman form secara default
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+    // Mengambil nilai dari form
+    const name = document.getElementById('name').value;
+    const dob = document.getElementById('dob').value;
+    const email = document.getElementById('email').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
 
-  const nama = document.querySelector('input[name="nama"]').value;
-  const tanggalLahir = document.querySelector('input[name="tanggalLahir"]').value;
-  const jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
-  const pesan = document.querySelector('textarea[name="pesan"]').value;
+    // Menampilkan pesan sukses
+    const successMessage = document.getElementById('successMessage');
+    successMessage.textContent = `Pendaftaran berhasil! Nama: ${name}, Tanggal Lahir: ${dob}, Email: ${email}, Jenis Kelamin: ${gender}.`;
+    successMessage.classList.remove('hidden');
 
-  const row = table.insertRow();
-  const namaCell = row.insertCell();
-  const tanggalLahirCell = row.insertCell();
-  const jenisKelaminCell = row.insertCell();
-  const pesanCell = row.insertCell();
-  const profileCell = row.insertCell();
-  const deleteCell = row.insertCell();
-
-  namaCell.textContent = nama;
-  tanggalLahirCell.textContent = tanggalLahir;
-  jenisKelaminCell.textContent = jenisKelamin;
-  pesanCell.textContent = pesan;
-  profileCell.innerHTML = '<button onclick="profile()">Klik Disini</button>';
-  deleteCell.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
-
-  form.reset();
+    // Mengatur ulang form
+    document.getElementById('registrationForm').reset();
 });
-
-function profile() {
-  // Implementasikan fungsi untuk menampilkan profil
-  alert('Profil akan ditampilkan di sini.');
-}
-
-function deleteRow(button) {
-  const row = button.parentNode.parentNode;
-  table.deleteRow(row.rowIndex);
-}
